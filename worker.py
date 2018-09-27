@@ -16,6 +16,7 @@ LIMIT   = 2
 LISTS   = ["gray_list", "white_list"]
 OK      = "OK"
 TRUNC   = False # Truncate peers list to LIMIT len
+DAEMON  = "107.150.28.134:12561" # Monero RPC compatible public node
 
 
 logging.basicConfig(level=logging.INFO)
@@ -43,7 +44,7 @@ dump = lambda name, data: simplejson.dump(
 
 def main():
     data = requests.post(
-        "http://188.35.187.49:12561/get_peer_list",
+        f"{DAEMON}/get_peer_list",
         data=json.dumps({}),
         headers={"content-type": "application/json"}
     ).json()
