@@ -11,11 +11,11 @@ import coloredlogs
 
 
 API_URL = "http://api.ipstack.com/"
-API_KEY = "ef3ffec5379594e952ab9eff2c3df360"
+API_KEY = "-PUT-YOUR-KEY-HERE-" # get it free at https://ipstack.com
 LIMIT   = 2
 LISTS   = ["gray_list", "white_list"]
 OK      = "OK"
-TRUNC   = False
+TRUNC   = False # Truncate peers list to LIMIT len
 
 
 logging.basicConfig(level=logging.INFO)
