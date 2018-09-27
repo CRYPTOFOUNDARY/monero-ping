@@ -48,9 +48,7 @@ $ . venv/bin/activate
 $ (venv) python main.py
 ```
 
-### Donate
-
-**Invest into $XSF** to support further Project development:
+##### Invest into **$XSF** to support further Project development:
 
 [STEX XSF/BTC](https://app.stex.com/en/basic-trade/pair/BTC/XSF/1D)
 
