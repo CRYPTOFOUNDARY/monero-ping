@@ -8,6 +8,8 @@ Service to locate Monero or any fork peers and visualize on Leaflet Map.
 
 ### Deploy
 
+You will need free `API_KEY` from [IP Stack](https://ipstack.com). Also you will need `public node` for your coin. Open file [worker.py](./worker.py) and edit `CONFIG_VARS` at top.
+
 Start new `tmux` session (advanced level users may use any flavor terminal multiplexer): 
 
 ```
