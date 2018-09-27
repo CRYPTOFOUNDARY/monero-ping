@@ -1,0 +1,98 @@
+  <!DOCTYPE html>
+  {% set height = 1024 %}
+  <html>
+    <head>
+      <title>/ping FlakeChain</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="/static/materialize/dist/css/materialize.css" media="screen,projection" rel="stylesheet" />
+      <link href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+       integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+       crossorigin=""
+       rel="stylesheet" />
+       <link href="/static/flakechain-peers/dist/css/flakechain-peers.css" rel="stylesheet" />
+       <script>
+        window.peers = {{peers|tojson|safe}}
+       </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <header class="">
+                        <h1>
+                            FlakeChain Network Status
+                            <span class="new badge" data-badge-caption="{{ peers.status}}" />
+                        </h1>
+                        <h6 class="flake-stack">
+                            {{ peers.white_list.__len__() }} peers in white list and {{ peers.gray_list.__len__() }} in gray list {{ arrow.get(peers.updated_at).humanize() }}
+                        </h6>
+                    </header>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s9">
+                    <main id="flakechain-peers" style="height: {{ height }}px"></main>
+                </div>
+                <div class="col s3">
+                    <nav>
+                        <a class="twitter-timeline" data-height="{{ height }}" data-theme="dark" href="https://twitter.com/flakechain?ref_src=twsrc%5Etfw">Tweets by flakechain</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="stack">
+                        White list
+                    </h5>
+                    <ul class="collection">
+                        {% for _ in peers.white_list %}
+                        {% set peer = _.info.geo %}
+                        <li class="collection-item avatar">
+                            {% if peer.location.country_flag %}<img src="{{ peer.location.country_flag }}" class="circle" alt="{{ peer.country_name }}, {{ peer.location.capital }}" />{% endif %}
+                            <span class="title">{{ peer.ip }}</span>
+                            <p>{% if peer.country_name %}{{ peer.country_name }}{% endif %}{% if peer.city %}, {{ peer.city }}{% endif %}</p>
+                            <a class="secondary-content"><i class="material-icons">signal_wifi_4_bar</i></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col s6">
+                    <h5 class="stack">
+                        Gray list
+                    </h5>
+                    <ul class="collection">
+                        {% for _ in peers.gray_list %}
+                        {% set peer = _.info.geo %}
+                        <li class="collection-item avatar">
+                            {% if peer.location.country_flag %}<img src="{{ peer.location.country_flag }}" class="circle" alt="{{ peer.country_name }}, {{ peer.location.capital }}" />{% endif %}
+                            <span class="title">{{ peer.ip }}</span>
+                            <p>{% if peer.country_name %}{{ peer.country_name }}{% endif %}{% if peer.city %}, {{ peer.city }}{% endif %}</p>
+                            <a class="secondary-content red-text"><i class="material-icons">signal_wifi_off</i></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <footer>
+            <p>
+            <a href="https://app.stex.com/en/basic-trade/pair/BTC/XSF/1D">
+                $XSF STEX Market
+            </a>
+            </p>
+            <p>
+                <a href="https://maplechange.com/markets/xsfbtc?markets=all&column=name&order=asc&unit=volume&pinned=true">
+                $XSF Maple Market
+            </a>
+            </p>
+        </footer>
+      <script src="/static/materialize/dist/js/materialize.js"></script>
+      <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+       integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+       crossorigin=""></script>
+      <script src="/static/flakechain-peers/dist/js/flakechain-peers.js"></script>
+    </body>
+  </html>
+

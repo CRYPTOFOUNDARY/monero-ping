@@ -1,0 +1,29 @@
+{
+  "name": "flakechain-peers",
+  "authors": [
+    "troublesomepony <troublesomepony@gmail.com>"
+  ],
+  "description": "FlakeChain/Monero/Bytecoin Peers and Status Observer and Locator",
+  "main": "none.js",
+  "keywords": [
+    "xsf",
+    "flakechain",
+    "xmr",
+    "monero",
+    "bytecoin",
+    "peer",
+    "peers",
+    "p2p",
+    "peering",
+    "status",
+    "observer",
+    "watcher",
+    "locator"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "materialize": "^1.0.0",
+    "leaflet": "^1.3.4"
+  }
+}
