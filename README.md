@@ -4,7 +4,7 @@
 
 Service to locate Monero or any fork peers and visualize on Leaflet Map.
 
-[Monero Ping](./monero-ping.png)
+![Monero Ping](./monero-ping.png)
 
 ### Deploy
 
