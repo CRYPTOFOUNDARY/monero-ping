@@ -53,6 +53,7 @@ $ (venv) python main.py
 **Invest into $XSF** to support further Project development:
 
 [STEX XSF/BTC](https://app.stex.com/en/basic-trade/pair/BTC/XSF/1D)
+
 [Maple XSF/BTC](https://maplechange.com/markets/xsfbtc?markets=all&column=name&order=asc&unit=volume&pinned=true)
 
 ### Copyright
